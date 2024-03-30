@@ -1,0 +1,3 @@
+```
+sqlx migrate run
+```
