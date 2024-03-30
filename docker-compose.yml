@@ -1,0 +1,17 @@
+version: "3"
+services:
+    daphne-postgres:
+        image: postgres
+        container_name: actix-sqlx-postgresql
+        ports:
+            - "5432:5432"
+        env_file:
+            - ./.env
+        environment:
+            POSTGRES_USER: ${DOCKER_DATABASE_USER}
+            POSTGRES_PASSWORD: ${DOCKER_DATABASE_PASSWORD}
+            POSTGRES_DB: ${DOCKER_DATABASE_NAME}
+        volumes:
+            - ./postgresql-data:/var/lib/postgresql/data
+volumes:
+  actix-sqlx-postgresql:
